@@ -1,10 +1,10 @@
 ---
 repository:
-  name: terraform-child-module
-  description: Terraform module to manage the Terraform Cloud/Enterprise resource (tfe_FIXME)
-  homepage: https://registry.terraform.io/modules/dhoppeIT/FIXME/tfe/latest
-  topics: terraform, tfe, FIXME
-  private: true
+  name: terraform-hcloud-server
+  description: Terraform module to manage the Hetzner Cloud resource (hcloud_server, hcloud_server_network)
+  homepage: https://registry.terraform.io/modules/dhoppeIT/server/hcloud/latest
+  topics: terraform, hcloud, server, server-network
+  private: false
   has_issues: true
   has_projects: false
   has_wiki: false
