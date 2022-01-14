@@ -67,7 +67,7 @@ No modules.
 | <a name="input_rescue"></a> [rescue](#input\_rescue) | Enable and boot in to the specified rescue system | `string` | `null` | no |
 | <a name="input_server_type"></a> [server\_type](#input\_server\_type) | Name of the server type this server should be created with | `string` | n/a | yes |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | SSH key IDs or names which should be injected into the server at creation time | `list(string)` | `[]` | no |
-| <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | ID of the sub-network which should be added to the server | `number` | `null` | no |
+| <a name="input_subnet_id"></a> [subnet\_id](#input\_subnet\_id) | ID of the sub-network which should be added to the server | `string` | `null` | no |
 | <a name="input_user_data"></a> [user\_data](#input\_user\_data) | Cloud-Init user data to use during server creation | `string` | `null` | no |
 
 ## Outputs

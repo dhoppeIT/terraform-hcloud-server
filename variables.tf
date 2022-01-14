@@ -104,7 +104,7 @@ variable "network_id" {
 }
 
 variable "subnet_id" {
-  type        = number
+  type        = string
   default     = null
   description = "ID of the sub-network which should be added to the server"
 }
