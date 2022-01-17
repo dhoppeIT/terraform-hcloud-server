@@ -58,7 +58,7 @@ variable "rescue" {
 variable "labels" {
   type        = map(string)
   default     = {}
-  description = "User-defined labels (key-value pairs) should be created with."
+  description = "User-defined labels (key-value pairs) should be created with"
 }
 
 variable "backups" {

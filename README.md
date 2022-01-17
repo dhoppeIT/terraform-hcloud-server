@@ -10,11 +10,26 @@ Terraform module to manage the Hetzner Cloud resource (hcloud_server, hcloud_ser
 
 Copy and paste into your Terraform configuration, insert the variables and run ```terraform init```:
 
+**Create one server:**
+
 ```hcl
 module "hcloud-server" {
   source = "dhoppeIT/server/hcloud"
 
   name        = "debian"
+  server_type = "cx11"
+  image       = "debian-10"
+}
+```
+
+**Create multiple servers:**
+
+```hcl
+module "hcloud-server" {
+  source = "dhoppeIT/server/hcloud"
+
+  count       = 3
+  name        = format("debian%02d", count.index + 1)
   server_type = "cx11"
   image       = "debian-10"
 }
