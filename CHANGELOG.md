@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.2](https://github.com/dhoppeIT/terraform-hcloud-server/compare/v0.1.1...v0.1.2) (2022-01-17)
+
+
+### Bug Fixes
+
+* Add additional output ([#7](https://github.com/dhoppeIT/terraform-hcloud-server/issues/7)) ([b16d9aa](https://github.com/dhoppeIT/terraform-hcloud-server/commit/b16d9aa555127bcc4c2bfd8740caede631ad42d0))
+
 ### [0.1.1](https://github.com/dhoppeIT/terraform-hcloud-server/compare/v0.1.0...v0.1.1) (2022-01-14)
 
 
