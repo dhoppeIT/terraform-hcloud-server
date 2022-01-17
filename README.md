@@ -110,7 +110,8 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_id"></a> [id](#output\_id) | Unique ID of the server |
-| <a name="output_ipv4_address"></a> [ipv4\_address](#output\_ipv4\_address) | The IPv4 address |
+| <a name="output_ipv4_address_private"></a> [ipv4\_address\_private](#output\_ipv4\_address\_private) | The private IPv4 address |
+| <a name="output_ipv4_address_public"></a> [ipv4\_address\_public](#output\_ipv4\_address\_public) | The public IPv4 address |
 | <a name="output_name"></a> [name](#output\_name) | Name of the server |
 
 <!--- END_TF_DOCS --->
