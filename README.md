@@ -10,11 +10,26 @@ Terraform module to manage the Hetzner Cloud resource (hcloud_server, hcloud_ser
 
 Copy and paste into your Terraform configuration, insert the variables and run ```terraform init```:
 
+**Create one server:**
+
 ```hcl
 module "hcloud-server" {
   source = "dhoppeIT/server/hcloud"
 
   name        = "debian"
+  server_type = "cx11"
+  image       = "debian-10"
+}
+```
+
+**Create multiple servers:**
+
+```hcl
+module "hcloud-server" {
+  source = "dhoppeIT/server/hcloud"
+
+  count       = 3
+  name        = format("debian%02d", count.index + 1)
   server_type = "cx11"
   image       = "debian-10"
 }
@@ -59,7 +74,7 @@ No modules.
 | <a name="input_ip"></a> [ip](#input\_ip) | IP to request to be assigned to this server | `string` | `null` | no |
 | <a name="input_iso"></a> [iso](#input\_iso) | ID or Name of an ISO image to mount | `string` | `null` | no |
 | <a name="input_keep_disk"></a> [keep\_disk](#input\_keep\_disk) | If true, do not upgrade the disk | `bool` | `false` | no |
-| <a name="input_labels"></a> [labels](#input\_labels) | User-defined labels (key-value pairs) should be created with. | `map(string)` | `{}` | no |
+| <a name="input_labels"></a> [labels](#input\_labels) | User-defined labels (key-value pairs) should be created with | `map(string)` | `{}` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location name to create the server in | `string` | `null` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the server to create | `string` | n/a | yes |
 | <a name="input_network_id"></a> [network\_id](#input\_network\_id) | ID of the network which should be added to the server | `number` | `null` | no |
