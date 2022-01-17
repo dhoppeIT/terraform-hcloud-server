@@ -8,7 +8,12 @@ output "name" {
   value       = hcloud_server.default.name
 }
 
-output "ipv4_address" {
-  description = "The IPv4 address"
+output "ipv4_address_public" {
+  description = "The public IPv4 address"
   value       = hcloud_server.default.ipv4_address
+}
+
+output "ipv4_address_private" {
+  description = "The private IPv4 address"
+  value       = try(hcloud_server_network.default[0].ip, "")
 }
