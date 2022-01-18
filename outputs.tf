@@ -15,5 +15,5 @@ output "ipv4_address_public" {
 
 output "ipv4_address_private" {
   description = "The private IPv4 address"
-  value       = try(hcloud_server_network.default[0].ip, "")
+  value       = one(hcloud_server_network.default[*].ip)
 }
