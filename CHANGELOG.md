@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.1.3](https://github.com/dhoppeIT/terraform-hcloud-server/compare/v0.1.2...v0.1.3) (2022-01-18)
+
+
+### Bug Fixes
+
+* Replace function try() with one() ([#9](https://github.com/dhoppeIT/terraform-hcloud-server/issues/9)) ([39a9e46](https://github.com/dhoppeIT/terraform-hcloud-server/commit/39a9e4655d2e3427c55fbab273f2c43214a8ac0c))
+
 ### [0.1.2](https://github.com/dhoppeIT/terraform-hcloud-server/compare/v0.1.1...v0.1.2) (2022-01-17)
 
 
