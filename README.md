@@ -25,6 +25,10 @@ module "hcloud-server" {
 **Create one server (plus private IP):**
 
 ```hcl
+data "hcloud_network" "default" {
+  name = "private"
+}
+
 module "hcloud-server" {
   source = "dhoppeIT/server/hcloud"
 
@@ -33,14 +37,25 @@ module "hcloud-server" {
   image       = "debian-10"
 
   create_server_network = true
-  network_id            = 1331495
-  ip                    = cidrhost("10.0.0.0/24", 2)
+  network_id            = data.hcloud_network.default.id
+  ip                    = cidrhost("${data.hcloud_network.default.ip_range}", 2)
 }
 ```
 
 **Create multiple servers:**
 
 ```hcl
+module "hcloud-network" {
+  source = "dhoppeIT/network/hcloud"
+
+  name             = "private"
+  ip_range_network = "10.0.0.0/16"
+
+  type            = "cloud"
+  ip_range_subnet = ["10.0.0.0/24"]
+  network_zone    = "eu-central"
+}
+
 module "hcloud-server" {
   source = "dhoppeIT/server/hcloud"
 
@@ -50,8 +65,8 @@ module "hcloud-server" {
   image       = "debian-10"
 
   create_server_network = true
-  subnet_id             = "1331495-10.0.0.0/24"
-  ip                    = cidrhost("10.0.0.0/24", 10 + count.index)
+  subnet_id             = module.hcloud-network.id_subnet[0]
+  ip                    = cidrhost("${module.hcloud-network.ip_range_subnet[0]}", 10 + count.index)
 }
 ```
 
