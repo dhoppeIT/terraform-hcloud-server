@@ -13,7 +13,7 @@ Copy and paste into your Terraform configuration, insert the variables and run `
 **Create one server (only public IP):**
 
 ```hcl
-module "hcloud-server" {
+module "hcloud_server" {
   source = "dhoppeIT/server/hcloud"
 
   name        = "debian"
@@ -29,7 +29,7 @@ data "hcloud_network" "default" {
   name = "private"
 }
 
-module "hcloud-server" {
+module "hcloud_server" {
   source = "dhoppeIT/server/hcloud"
 
   name        = "debian"
@@ -45,7 +45,7 @@ module "hcloud-server" {
 **Create multiple servers:**
 
 ```hcl
-module "hcloud-network" {
+module "hcloud_network" {
   source = "dhoppeIT/network/hcloud"
 
   name             = "private"
@@ -56,7 +56,7 @@ module "hcloud-network" {
   network_zone    = "eu-central"
 }
 
-module "hcloud-server" {
+module "hcloud_server" {
   source = "dhoppeIT/server/hcloud"
 
   count       = 3
@@ -65,8 +65,8 @@ module "hcloud-server" {
   image       = "debian-10"
 
   create_server_network = true
-  subnet_id             = module.hcloud-network.id_subnet[0]
-  ip                    = cidrhost("${module.hcloud-network.ip_range_subnet[0]}", 10 + count.index)
+  subnet_id             = module.hcloud_network.id_subnet[0]
+  ip                    = cidrhost("${module.hcloud_network.ip_range_subnet[0]}", 10 + count.index)
 }
 ```
 
