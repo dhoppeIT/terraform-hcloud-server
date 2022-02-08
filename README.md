@@ -1,6 +1,9 @@
 # terraform-hcloud-server
 
-Terraform module to manage the Hetzner Cloud resource (hcloud_server, hcloud_server_network).
+Terraform module to manage the following Hetzner Cloud resources:
+
+* hcloud_server
+* hcloud_server_network
 
 ## Graph
 
@@ -14,7 +17,8 @@ Copy and paste into your Terraform configuration, insert the variables and run `
 
 ```hcl
 module "hcloud_server" {
-  source = "dhoppeIT/server/hcloud"
+  source  = "dhoppeIT/server/hcloud"
+  version = "~> 0.1"
 
   name        = "debian"
   server_type = "cx11"
@@ -30,7 +34,8 @@ data "hcloud_network" "default" {
 }
 
 module "hcloud_server" {
-  source = "dhoppeIT/server/hcloud"
+  source  = "dhoppeIT/server/hcloud"
+  version = "~> 0.1"
 
   name        = "debian"
   server_type = "cx11"
@@ -46,7 +51,8 @@ module "hcloud_server" {
 
 ```hcl
 module "hcloud_network" {
-  source = "dhoppeIT/network/hcloud"
+  source  = "dhoppeIT/network/hcloud"
+  version = "~> 0.3"
 
   name             = "private"
   ip_range_network = "10.0.0.0/16"
@@ -57,7 +63,8 @@ module "hcloud_network" {
 }
 
 module "hcloud_server" {
-  source = "dhoppeIT/server/hcloud"
+  source  = "dhoppeIT/server/hcloud"
+  version = "~> 0.1"
 
   count       = 3
   name        = format("debian%02d", count.index + 1)
