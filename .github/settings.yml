@@ -1,7 +1,7 @@
 ---
 repository:
   name: terraform-hcloud-server
-  description: Terraform module to manage the Hetzner Cloud resource (hcloud_server, hcloud_server_network)
+  description: Terraform module to manage the following Hetzner Cloud resources (hcloud_server, hcloud_server_network)
   homepage: https://registry.terraform.io/modules/dhoppeIT/server/hcloud/latest
   topics: terraform, hcloud, server, server-network
   private: false
@@ -64,7 +64,7 @@ branches:
         dismiss_stale_reviews: true
       required_status_checks:
         strict: true
-        contexts: ["Validate Terraform"]
+        contexts: []
       enforce_admins: null
       required_linear_history: true
       restrictions: null
