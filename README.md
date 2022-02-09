@@ -13,8 +13,6 @@ Terraform module to manage the following Hetzner Cloud resources:
 
 Copy and paste into your Terraform configuration, insert the variables and run ```terraform init```:
 
-**Create one server (only public IP):**
-
 ```hcl
 module "hcloud_server" {
   source  = "dhoppeIT/server/hcloud"
@@ -23,57 +21,6 @@ module "hcloud_server" {
   name        = "debian"
   server_type = "cx11"
   image       = "debian-10"
-}
-```
-
-**Create one server (plus private IP):**
-
-```hcl
-data "hcloud_network" "default" {
-  name = "private"
-}
-
-module "hcloud_server" {
-  source  = "dhoppeIT/server/hcloud"
-  version = "~> 0.1"
-
-  name        = "debian"
-  server_type = "cx11"
-  image       = "debian-10"
-
-  create_server_network = true
-  network_id            = data.hcloud_network.default.id
-  ip                    = cidrhost("${data.hcloud_network.default.ip_range}", 2)
-}
-```
-
-**Create multiple servers:**
-
-```hcl
-module "hcloud_network" {
-  source  = "dhoppeIT/network/hcloud"
-  version = "~> 0.3"
-
-  name             = "private"
-  ip_range_network = "10.0.0.0/16"
-
-  type            = "cloud"
-  ip_range_subnet = ["10.0.0.0/24"]
-  network_zone    = "eu-central"
-}
-
-module "hcloud_server" {
-  source  = "dhoppeIT/server/hcloud"
-  version = "~> 0.1"
-
-  count       = 3
-  name        = format("debian%02d", count.index + 1)
-  server_type = "cx11"
-  image       = "debian-10"
-
-  create_server_network = true
-  subnet_id             = module.hcloud_network.id_subnet[0]
-  ip                    = cidrhost("${module.hcloud_network.ip_range_subnet[0]}", 10 + count.index)
 }
 ```
 
