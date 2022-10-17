@@ -36,7 +36,7 @@ module "hcloud_server" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | 1.33.1 |
+| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | 1.35.2 |
 
 ## Modules
 
@@ -82,7 +82,6 @@ No modules.
 | <a name="output_ipv4_address_private"></a> [ipv4\_address\_private](#output\_ipv4\_address\_private) | The private IPv4 address |
 | <a name="output_ipv4_address_public"></a> [ipv4\_address\_public](#output\_ipv4\_address\_public) | The public IPv4 address |
 | <a name="output_name"></a> [name](#output\_name) | Name of the server |
-
 <!-- END_TF_DOCS -->
 
 ## Authors

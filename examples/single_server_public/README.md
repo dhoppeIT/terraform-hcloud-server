@@ -54,7 +54,6 @@ No resources.
 | <a name="output_server_id"></a> [server\_id](#output\_server\_id) | Unique ID of the server |
 | <a name="output_server_ipv4_address_public"></a> [server\_ipv4\_address\_public](#output\_server\_ipv4\_address\_public) | The public IPv4 address |
 | <a name="output_server_name"></a> [server\_name](#output\_server\_name) | Name of the server |
-
 <!-- END_TF_DOCS -->
 
 ## Authors
