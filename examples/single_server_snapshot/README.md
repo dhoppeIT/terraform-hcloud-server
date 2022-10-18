@@ -25,25 +25,21 @@ $ terraform apply
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.0 |
+| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.25 |
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| <a name="provider_hcloud"></a> [hcloud](#provider\_hcloud) | 1.32.2 |
+No providers.
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_hcloud_server"></a> [hcloud\_server](#module\_hcloud\_server) | dhoppeIT/server/hcloud | ~> 0.1 |
+| <a name="module_hcloud_server"></a> [hcloud\_server](#module\_hcloud\_server) | dhoppeIT/server/hcloud | ~> 0.2 |
 
 ## Resources
 
-| Name | Type |
-|------|------|
-| [hcloud_network.default](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/data-sources/network) | data source |
+No resources.
 
 ## Inputs
 
@@ -56,7 +52,6 @@ $ terraform apply
 | Name | Description |
 |------|-------------|
 | <a name="output_server_id"></a> [server\_id](#output\_server\_id) | Unique ID of the server |
-| <a name="output_server_ipv4_address_private"></a> [server\_ipv4\_address\_private](#output\_server\_ipv4\_address\_private) | The private IPv4 address |
 | <a name="output_server_ipv4_address_public"></a> [server\_ipv4\_address\_public](#output\_server\_ipv4\_address\_public) | The public IPv4 address |
 | <a name="output_server_name"></a> [server\_name](#output\_server\_name) | Name of the server |
 <!-- END_TF_DOCS -->
