@@ -8,7 +8,7 @@ jobs:
   readme:
     uses: dhoppeIT/github-reusable-workflows/.github/workflows/docs.yaml@main
     with:
-      working-dir: .,examples/multiple_servers_private,examples/single_server_private,examples/single_server_public
+      working-dir: .,examples/multiple_servers_private,examples/single_server_private,examples/single_server_public,examples/single_server_snapshot
       output-file: README.md
       git-commit-message: "docs: Generate README.md"
       git-push: true
