@@ -21,5 +21,5 @@ module "hcloud_server" {
 
   create_server_network = local.create_server_network
   subnet_id             = module.hcloud_network.id_subnet[0]
-  ip                    = cidrhost("${module.hcloud_network.ip_range_subnet[0]}", 10 + count.index)
+  ip                    = cidrhost(module.hcloud_network.ip_range_subnet[0], 10 + count.index)
 }

@@ -114,3 +114,15 @@ variable "ip" {
   default     = null
   description = "IP to request to be assigned to this server"
 }
+
+variable "create_snapshot" {
+  type        = bool
+  default     = false
+  description = "Whether to create server snapshot"
+}
+
+variable "description" {
+  type        = string
+  default     = null
+  description = "Description of the snapshot"
+}

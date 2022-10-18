@@ -8,5 +8,5 @@ module "hcloud_server" {
 
   create_server_network = local.create_server_network
   network_id            = data.hcloud_network.default.id
-  ip                    = cidrhost("${data.hcloud_network.default.ip_range}", 2)
+  ip                    = cidrhost(data.hcloud_network.default.ip_range, 2)
 }

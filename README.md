@@ -4,6 +4,7 @@ Terraform module to manage the following Hetzner Cloud resources:
 
 * hcloud_server
 * hcloud_server_network
+* hcloud_snapshot
 
 ## Graph
 
@@ -30,7 +31,7 @@ module "hcloud_server" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
-| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.0 |
+| <a name="requirement_hcloud"></a> [hcloud](#requirement\_hcloud) | ~> 1.25 |
 
 ## Providers
 
@@ -48,6 +49,7 @@ No modules.
 |------|------|
 | [hcloud_server.default](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/server) | resource |
 | [hcloud_server_network.default](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/server_network) | resource |
+| [hcloud_snapshot.default](https://registry.terraform.io/providers/hetznercloud/hcloud/latest/docs/resources/snapshot) | resource |
 
 ## Inputs
 
@@ -56,8 +58,10 @@ No modules.
 | <a name="input_alias_ips"></a> [alias\_ips](#input\_alias\_ips) | Additional IPs to be assigned to this server | `list(string)` | `[]` | no |
 | <a name="input_backups"></a> [backups](#input\_backups) | Enable or disable backups | `bool` | `false` | no |
 | <a name="input_create_server_network"></a> [create\_server\_network](#input\_create\_server\_network) | Whether to create server network | `bool` | `false` | no |
+| <a name="input_create_snapshot"></a> [create\_snapshot](#input\_create\_snapshot) | Whether to create server snapshot | `bool` | `false` | no |
 | <a name="input_datacenter"></a> [datacenter](#input\_datacenter) | The datacenter name to create the server in | `string` | `null` | no |
 | <a name="input_delete_protection"></a> [delete\_protection](#input\_delete\_protection) | Enable or disable delete protection | `bool` | `false` | no |
+| <a name="input_description"></a> [description](#input\_description) | Description of the snapshot | `string` | `null` | no |
 | <a name="input_firewall_ids"></a> [firewall\_ids](#input\_firewall\_ids) | Firewall IDs the server should be attached to on creation | `list(string)` | `[]` | no |
 | <a name="input_image"></a> [image](#input\_image) | Name or ID of the image the server is created from | `string` | n/a | yes |
 | <a name="input_ip"></a> [ip](#input\_ip) | IP to request to be assigned to this server | `string` | `null` | no |
