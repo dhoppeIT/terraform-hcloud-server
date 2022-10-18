@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/dhoppeIT/terraform-hcloud-server/compare/v0.1.4...v0.2.0) (2022-10-18)
+
+
+### Features
+
+* Manage the following Terraform resource ([#37](https://github.com/dhoppeIT/terraform-hcloud-server/issues/37)) ([6be72a7](https://github.com/dhoppeIT/terraform-hcloud-server/commit/6be72a7f595de1c560cf7f886528068cea877d23))
+
 ### [0.1.4](https://github.com/dhoppeIT/terraform-hcloud-server/compare/v0.1.3...v0.1.4) (2022-01-31)
 
 
