@@ -25,3 +25,11 @@ resource "hcloud_server_network" "default" {
   subnet_id  = var.subnet_id
   ip         = var.ip
 }
+
+resource "hcloud_snapshot" "default" {
+  count = var.create_snapshot ? 1 : 0
+
+  server_id   = hcloud_server.default.id
+  description = var.description
+  labels      = hcloud_server.default.labels
+}

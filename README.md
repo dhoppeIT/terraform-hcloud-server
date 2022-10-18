@@ -4,6 +4,7 @@ Terraform module to manage the following Hetzner Cloud resources:
 
 * hcloud_server
 * hcloud_server_network
+* hcloud_snapshot
 
 ## Graph
 
