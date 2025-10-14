@@ -10,13 +10,115 @@ Copy and paste the following code snippet to your Terraform configuration,
 specify the required variables and run the command `terraform init`.
 
 ```hcl
+module "hcloud_firewall" {
+  source  = "gitlab.com/terraform-child-modules-48151/terraform-hcloud-firewall/local"
+  version = "1.0.0"
+
+  name = "example-firewall"
+  rule = [
+    {
+      direction = "in"
+      protocol  = "icmp"
+      source_ips = [
+        "0.0.0.0/0",
+        "::/0"
+      ]
+    },
+    {
+      direction = "in"
+      protocol  = "tcp"
+      port      = "22"
+      source_ips = [
+        "0.0.0.0/0",
+        "::/0"
+      ]
+    },
+    {
+      direction = "out"
+      protocol  = "icmp"
+      destination_ips = [
+        "0.0.0.0/0",
+        "::/0"
+      ]
+    },
+    {
+      direction = "out"
+      protocol  = "tcp"
+      port      = "53"
+      destination_ips = [
+        "0.0.0.0/0",
+        "::/0"
+      ]
+    },
+    {
+      direction = "out"
+      protocol  = "udp"
+      port      = "53"
+      destination_ips = [
+        "0.0.0.0/0",
+        "::/0"
+      ]
+    },
+    {
+      direction = "out"
+      protocol  = "tcp"
+      port      = "80"
+      destination_ips = [
+        "0.0.0.0/0",
+        "::/0"
+      ]
+    },
+    {
+      direction = "out"
+      protocol  = "tcp"
+      port      = "443"
+      destination_ips = [
+        "0.0.0.0/0",
+        "::/0"
+      ]
+    }
+  ]
+}
+
+module "hcloud_network" {
+  source  = "gitlab.com/terraform-child-modules-48151/terraform-hcloud-network/local"
+  version = "1.0.0"
+
+  name             = "example-network"
+  ip_range_network = "10.0.0.0/8"
+
+  type            = "cloud"
+  network_zone    = "eu-central"
+  ip_range_subnet = "10.0.1.0/24"
+}
+
+module "hcloud_ssh_key" {
+  source  = "gitlab.com/terraform-child-modules-48151/terraform-hcloud-ssh-key/local"
+  version = "1.0.0"
+
+  name       = "example-ssh-key"
+  public_key = "./dhoppeit.pub"
+}
+
 module "hcloud_server" {
   source  = "gitlab.com/terraform-child-modules-48151/terraform-hcloud-server/local"
   version = "1.0.0"
 
   name        = "example-server"
-  server_type = "cx22"
   image       = "debian-13"
+  server_type = "cx22"
+
+  location = "nbg1"
+  firewall_ids = [
+    module.hcloud_firewall.id
+  ]
+  network = {
+    network_id = module.hcloud_network.id_network
+    ip         = cidrhost(module.hcloud_network.ip_range_subnet, 2)
+  }
+  ssh_keys = [
+    module.hcloud_ssh_key.id
+  ]
 }
 
 ```
