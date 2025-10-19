@@ -1,5 +1,6 @@
 variable "token" {
   type        = string
+  sensitive   = true
   description = "This is the Hetzner Cloud API Token, can also be specified with the HCLOUD_TOKEN environment variable"
 }
 
